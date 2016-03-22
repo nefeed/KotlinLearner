@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Kotlin学习者</string>
+    <string name="app_name">Kotlin教练</string>
     <string name="main_welcome">欢迎来到Kotlin世界</string>
     <string name="go_into_bmi">测量体质指数（BMI）</string>
     <string name="unknown_wrong">系统未知错误</string>

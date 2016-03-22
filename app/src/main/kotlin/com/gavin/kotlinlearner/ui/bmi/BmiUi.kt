@@ -30,7 +30,7 @@ class BmiUi : AnkoComponent<BMIActivity> {
 
     private val customeStyle = { v: Any ->
         when (v) {
-            is Button -> v.textSize = 16f;
+            is Button -> v.textSize = 20f;
             is EditText -> v.textSize = 14f
             is TextView -> v.textSize = 14f;
             is RadioButton -> v.textSize = 14f;
@@ -136,6 +136,8 @@ class BmiUi : AnkoComponent<BMIActivity> {
                         var _weight :Float = mEtWeight?.text.toString().toFloat()
                         var _advice = ui.owner.calculateBmi(ui, _height, _weight, mSex)
                         mTvAdvice?.text = Html.fromHtml(_advice.toString())
+                        mEtHeight!!.clearFocus()
+                        mEtWeight!!.clearFocus()
                     }
                 }
             }
