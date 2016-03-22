@@ -34,7 +34,7 @@ class BMIActivity : BaseActivity() {
     fun calculateBmi(ui: AnkoContext<BMIActivity>, height: Float, weight: Float, sex: Int) : CharSequence {
 
         ui.async() {
-            Thread.sleep(350)
+            Thread.sleep(1200)
 
             activityUiThreadWithContext {
                 toast("感谢使用测量BMI功能！")

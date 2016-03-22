@@ -44,9 +44,9 @@ open class BaseActivity : AppCompatActivity() {
         //noinspection SimplifiableIfStatement
         when(id) {
             android.R.id.home -> {finish()}
-            R.id.menu_settings -> { print("点击了设置"); toast("点击了设置") }
-            R.id.menu_about -> { print("点击了关于"); toast("点击了关于") }
-            R.id.menu_quit -> { finish() }
+            R.id.menu_settings -> { println("点击了设置"); toast("点击了设置") }
+            R.id.menu_about -> { println("点击了关于"); toast("点击了关于") }
+            R.id.menu_quit -> { android.os.Process.killProcess(android.os.Process.myPid())  }
         }
 
         return super.onOptionsItemSelected(item)

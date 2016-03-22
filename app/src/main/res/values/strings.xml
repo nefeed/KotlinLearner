@@ -16,7 +16,7 @@
     <string name="bmi_hint_height">身高（cm）</string>
     <string name="bmi_hint_weight">体重（kg）</string>
     <string name="bmi_calculate">测量</string>
-    <string name="bmi_lower">测量结果：%.2f。\n偏瘦，请注意饮食和睡眠！</string>
-    <string name="bmi_normal">测量结果：%.2f。\n正常，请保持锻炼！</string>
-    <string name="bmi_upper">测量结果：%.2f。\n偏胖，请注意饮食并加强锻炼！</string>
+    <string name="bmi_lower">&lt;font color=\'#999999\'&gt;测量结果： &lt;/font&gt;&lt;strong&gt;&lt;big&gt;&lt;font color=\'#ffbb33\'&gt;%.2f&lt;/font&gt;&lt;/big&gt;&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;font color=\'#999999\'&gt;结果偏瘦，请注意饮食和睡眠&lt;/font&gt;</string>
+    <string name="bmi_normal">&lt;font color=\'#999999\'&gt;测量结果： &lt;/font&gt;&lt;strong&gt;&lt;big&gt;&lt;font color=\'#99cc00\'&gt;%.2f&lt;/font&gt;&lt;/big&gt;&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;font color=\'#999999\'&gt;结果正常，请保持锻炼&lt;/font&gt;</string>
+    <string name="bmi_upper">&lt;font color=\'#999999\'&gt;测量结果： &lt;/font&gt;&lt;strong&gt;&lt;big&gt;&lt;font color=\'#ff4444\'&gt;%.2f&lt;/font&gt;&lt;/big&gt;&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;font color=\'#999999\'&gt;结果偏胖，请注意饮食并加强锻炼&lt;/font&gt;</string>
 </resources>
