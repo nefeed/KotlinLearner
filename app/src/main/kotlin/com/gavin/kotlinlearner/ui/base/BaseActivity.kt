@@ -1,12 +1,12 @@
 package com.gavin.kotlinlearner.ui.base
 
 import android.app.Activity
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
-import com.gavin.kotlinlearner.ui.BMIActivity
+import com.gavin.kotlinlearner.R
 
 /**
  * User: Gavin
@@ -29,10 +29,27 @@ open class BaseActivity : AppCompatActivity() {
         Toast.makeText(this, message, duration).show();
     }
 
-    /**
-     * 跳转BMI测量界面
-     */
-    fun start(context: Context) {
-        context.startActivity(Intent(context, BMIActivity::class))
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        val id = item.itemId
+
+        //noinspection SimplifiableIfStatement
+        when(id) {
+            android.R.id.home -> {finish()}
+            R.id.menu_settings -> { print("点击了设置"); toast("点击了设置") }
+            R.id.menu_about -> { print("点击了关于"); toast("点击了关于") }
+            R.id.menu_quit -> { finish() }
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
 }

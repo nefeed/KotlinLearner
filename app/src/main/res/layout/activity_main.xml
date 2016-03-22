@@ -11,7 +11,18 @@
 
     <TextView
         android:id="@+id/tvWelcome"
-        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:textSize="20sp"
+        android:text="@string/main_welcome" />
+
+    <Button
+        android:id="@+id/btBmi"
+        android:layout_below="@+id/tvWelcome"
+        android:textSize="18sp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </RelativeLayout>

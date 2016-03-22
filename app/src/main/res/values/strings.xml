@@ -1,6 +1,22 @@
 <resources>
-    <string name="app_name">KotlinLearner</string>
+    <string name="app_name">Kotlin学习者</string>
+    <string name="main_welcome">欢迎来到Kotlin世界</string>
+    <string name="go_into_bmi">测量体质指数（BMI）</string>
+    <string name="unknown_wrong">系统未知错误</string>
     <string name="menu_settings">设置</string>
     <string name="menu_about">关于</string>
     <string name="menu_quit">退出</string>
+
+    <string name="sex_man">男</string>
+    <string name="sex_woman">女</string>
+    <string name="bmi_title">测量BMI</string>
+    <string name="bmi_advice">点击测量显示结果</string>
+    <string name="bmi_height">身高：</string>
+    <string name="bmi_weight">体重：</string>
+    <string name="bmi_hint_height">身高（cm）</string>
+    <string name="bmi_hint_weight">体重（kg）</string>
+    <string name="bmi_calculate">测量</string>
+    <string name="bmi_lower">测量结果：%.2f。\n偏瘦，请注意饮食和睡眠！</string>
+    <string name="bmi_normal">测量结果：%.2f。\n正常，请保持锻炼！</string>
+    <string name="bmi_upper">测量结果：%.2f。\n偏胖，请注意饮食并加强锻炼！</string>
 </resources>
