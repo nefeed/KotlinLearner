@@ -42,6 +42,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.2.1'
+    compile 'com.facebook.fresco:fresco:0.9.0+'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile "org.jetbrains.anko:anko-sdk21:$anko_version" // sdk15, sdk19, sdk21, sdk23 are also available
     compile "org.jetbrains.anko:anko-support-v4:$anko_version" // In case you need support-v4 bindings

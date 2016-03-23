@@ -7,7 +7,7 @@ import android.view.Gravity
 import android.widget.*
 import com.gavin.kotlinlearner.R
 import com.gavin.kotlinlearner.R.string.*
-import com.gavin.kotlinlearner.utils.Const
+import com.gavin.kotlinlearner.app.Const
 import com.gavin.kotlinlearner.widget.bmiLogoView
 import org.jetbrains.anko.*
 

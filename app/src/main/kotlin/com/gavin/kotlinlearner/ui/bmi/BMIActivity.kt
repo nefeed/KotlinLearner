@@ -3,7 +3,7 @@ package com.gavin.kotlinlearner.ui.bmi
 import android.os.Bundle
 import com.gavin.kotlinlearner.R.string.*
 import com.gavin.kotlinlearner.ui.base.BaseActivity
-import com.gavin.kotlinlearner.utils.Const
+import com.gavin.kotlinlearner.app.Const
 import org.jetbrains.anko.*
 
 /**
