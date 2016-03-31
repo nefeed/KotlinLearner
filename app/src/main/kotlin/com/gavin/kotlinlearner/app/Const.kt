@@ -7,7 +7,9 @@ package com.gavin.kotlinlearner.app
  * Date: 2016-03-22
  * Time: 11:45
  */
-enum class Const(value :Int) {
-    SEX_WOMAN(0),
-    SEX_MAN(1)
+class Const {
+    companion object {
+        val SEX_WOMAN :Int = 0
+        val SEX_MAN :Int = 1
+    }
 }

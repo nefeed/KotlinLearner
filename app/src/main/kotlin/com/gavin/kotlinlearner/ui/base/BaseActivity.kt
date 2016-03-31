@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.gavin.kotlinlearner.R
+import com.gavin.kotlinlearner.app.KotlinApplication
 
 /**
  * User: Gavin
@@ -15,11 +16,22 @@ import com.gavin.kotlinlearner.R
  * Date: 2016-03-21
  * Time: 17:15
  */
-open class BaseActivity : AppCompatActivity() {
+open class BaseActivity: AppCompatActivity() {
+
+    protected open var TAG: String = this.javaClass.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        print("onCreate()")
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        KotlinApplication.addActivity(this)
+        println("$TAG onCreate()")
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        println("$TAG onDestroy()")
+        KotlinApplication.removeActivity(this)
     }
 
     /**
@@ -46,7 +58,7 @@ open class BaseActivity : AppCompatActivity() {
             android.R.id.home -> {finish()}
             R.id.menu_settings -> { println("点击了设置"); toast("点击了设置") }
             R.id.menu_about -> { println("点击了关于"); toast("点击了关于") }
-            R.id.menu_quit -> { android.os.Process.killProcess(android.os.Process.myPid())  }
+            R.id.menu_quit -> { KotlinApplication.exit() }
         }
 
         return super.onOptionsItemSelected(item)

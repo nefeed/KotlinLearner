@@ -22,7 +22,7 @@ class WelcomeActivity : Activity() {
         setContentView(R.layout.activity_welcome)
 
         async() {
-            Thread.sleep(1200)
+            Thread.sleep(1500)
 
             activityUiThreadWithContext {
                 startActivity<MainActivity>()

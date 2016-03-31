@@ -2,8 +2,8 @@ package com.gavin.kotlinlearner.ui.bmi
 
 import android.os.Bundle
 import com.gavin.kotlinlearner.R.string.*
-import com.gavin.kotlinlearner.ui.base.BaseActivity
 import com.gavin.kotlinlearner.app.Const
+import com.gavin.kotlinlearner.ui.base.BaseActivity
 import org.jetbrains.anko.*
 
 /**
@@ -14,6 +14,8 @@ import org.jetbrains.anko.*
  * Time: 18:34
  */
 class BMIActivity : BaseActivity() {
+
+    override var TAG: String = this.javaClass.simpleName
 
     val MAN_LOWER_BMI : Float = 20.7f
     val MAN_UPPER_BMI : Float = 26.4f
@@ -27,8 +29,8 @@ class BMIActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         BmiUi().setContentView(this)
 
-        supportActionBar!!.setTitle(bmi_title)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        setTitle(bmi_title)
+
     }
 
     fun calculateBmi(ui: AnkoContext<BMIActivity>, height: Float, weight: Float, sex: Int) : CharSequence {
@@ -44,7 +46,7 @@ class BMIActivity : BaseActivity() {
         mBmi = weight / (height * height)
 
         when (sex) {
-            Const.SEX_MAN.ordinal -> {
+            Const.SEX_MAN -> {
                 if (mBmi < MAN_LOWER_BMI) {
                     mAdvice = String.format(getString(bmi_lower), mBmi)
                 } else if (mBmi > MAN_UPPER_BMI) {
@@ -53,7 +55,7 @@ class BMIActivity : BaseActivity() {
                     mAdvice = String.format(getString(bmi_normal), mBmi)
                 }
             }
-            Const.SEX_WOMAN.ordinal -> {
+            Const.SEX_WOMAN -> {
                 if (mBmi < WOMAN_LOWER_BMI) {
                     mAdvice = String.format(getString(bmi_lower), mBmi)
                 } else if (mBmi > WOMAN_UPPER_BMI) {

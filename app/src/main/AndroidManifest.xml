@@ -23,6 +23,8 @@
             android:launchMode="singleTask"  />
 
         <activity android:name=".ui.bmi.BMIActivity" />
+        <activity android:name=".ui.news.NewsActivity" />
+        <activity android:name=".ui.news.NewsPageActivity" />
 
     </application>
 

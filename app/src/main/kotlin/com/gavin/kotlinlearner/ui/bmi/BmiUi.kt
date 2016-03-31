@@ -20,13 +20,13 @@ import org.jetbrains.anko.*
  */
 class BmiUi : AnkoComponent<BMIActivity> {
 
-    var mTvAdvice :TextView ?= null
-    var mEtHeight :EditText ?= null
-    var mEtWeight :EditText ?= null
-    var mRgSex :RadioGroup ?= null
-    var mRbSexMan :RadioButton ?= null
-    var mRbSexWoMan :RadioButton ?= null
-    var mSex :Int = -1
+    var mTvAdvice: TextView ?= null
+    var mEtHeight: EditText ?= null
+    var mEtWeight: EditText ?= null
+    var mRgSex: RadioGroup ?= null
+    var mRbSexMan: RadioButton ?= null
+    var mRbSexWoMan: RadioButton ?= null
+    var mSex: Int = -1
 
     private val customeStyle = { v: Any ->
         when (v) {
@@ -103,9 +103,9 @@ class BmiUi : AnkoComponent<BMIActivity> {
 //                    mSex = i - 1
 //                    println("系统默认选中了：" + mSex)
                     if ((mRbSexMan as RadioButton).isChecked) {
-                        mSex = Const.SEX_MAN.ordinal
+                        mSex = Const.SEX_MAN
                     } else if ((mRbSexWoMan as RadioButton).isChecked) {
-                        mSex = Const.SEX_WOMAN.ordinal
+                        mSex = Const.SEX_WOMAN
                     } else {
                         mSex = -1
                     }

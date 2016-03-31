@@ -26,4 +26,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <Button
+        android:id="@+id/btNews"
+        android:layout_below="@+id/btBmi"
+        android:textSize="18sp"
+        android:layout_marginTop="@dimen/view_vertical_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </RelativeLayout>
