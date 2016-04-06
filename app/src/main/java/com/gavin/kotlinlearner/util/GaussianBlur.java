@@ -37,8 +37,7 @@ public class GaussianBlur {
         /**
          * 获取当前窗口快照，相当于截屏
          */
-        float scaleFactor = 8;//图片缩放比例；
-        Bitmap bmp = getScreenShot(scaleFactor);
+        Bitmap bmp = getScreenShot();
         bmp = blur(bmp);
 //        bmp = compressionBitmap(bmp);
         return bmp;
@@ -49,13 +48,12 @@ public class GaussianBlur {
      *
      * @return
      */
-    private Bitmap getScreenShot(float scaleFactor) {
+    private Bitmap getScreenShot() {
         // 获取windows截图
         View view = mActivity.getWindow().getDecorView().getRootView();
         if (view == null) {
             return null;
         }
-
         // 获取屏幕宽和高
         DisplayMetrics dm = new DisplayMetrics();
         mActivity.getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -112,12 +110,13 @@ public class GaussianBlur {
     private Bitmap blur(Bitmap bkg) {
         long startMs = System.currentTimeMillis();
         float scaleFactor = 0.2f; // 缩放比例 0-max 之间的数值，1为不缩放
-        float radius = 20; // 模糊程度
+        float radius = 15; // 模糊程度
 
-        int statusBarHeight = getOtherHeight();
+        int statusBarHeight = getOtherHeight(); // 获取顶部状态栏和标题栏的高度
+        int navigationBarHeight = NavigationBarUtil.getNavigationBarHeight(mActivity); // 获取底部的导航栏的高度
         // 除去状态栏和标题栏
         bkg = Bitmap.createBitmap(bkg, 0, statusBarHeight,
-                bkg.getWidth(), bkg.getHeight() - statusBarHeight);
+                bkg.getWidth(), bkg.getHeight() - statusBarHeight - navigationBarHeight);
         // 对图片进行压缩
 //        bkg = Bitmap.createBitmap(bmp, 0, 0,
 //                (int) (bkg.getWidth() / scaleFactor), (int) (bkg.getHeight() / scaleFactor));
