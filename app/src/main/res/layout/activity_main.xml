@@ -21,7 +21,7 @@
     <Button
         android:id="@+id/btBmi"
         android:layout_below="@+id/tvWelcome"
-        android:textSize="18sp"
+        style="@style/main_activity_btn"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -29,7 +29,15 @@
     <Button
         android:id="@+id/btNews"
         android:layout_below="@+id/btBmi"
-        android:textSize="18sp"
+        style="@style/main_activity_btn"
+        android:layout_marginTop="@dimen/view_vertical_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btGaussian"
+        android:layout_below="@+id/btNews"
+        style="@style/main_activity_btn"
         android:layout_marginTop="@dimen/view_vertical_margin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

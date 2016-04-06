@@ -5,6 +5,7 @@ import com.gavin.kotlinlearner.R
 import com.gavin.kotlinlearner.R.string.*
 import com.gavin.kotlinlearner.ui.base.BaseActivity
 import com.gavin.kotlinlearner.ui.bmi.BMIActivity
+import com.gavin.kotlinlearner.ui.gaussian.GaussianActivity
 import com.gavin.kotlinlearner.ui.news.NewsPageActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
@@ -31,6 +32,11 @@ class MainActivity : BaseActivity() {
         btNews.textResource = go_into_news
         btNews.setOnClickListener {
             startActivity<NewsPageActivity>()
+        }
+
+        btGaussian.textResource = go_into_gaussian
+        btGaussian.setOnClickListener {
+            startActivity<GaussianActivity>()
         }
     }
 }

@@ -3,6 +3,7 @@
     <string name="main_welcome">欢迎来到 Kotlin 世界</string>
     <string name="go_into_bmi">测量体质指数（BMI）</string>
     <string name="go_into_news">去看看这个世界</string>
+    <string name="go_into_gaussian">高斯模糊有多模糊</string>
     <string name="unknown_wrong">系统未知错误</string>
     <string name="menu_settings">设置</string>
     <string name="menu_about">关于</string>
@@ -22,4 +23,11 @@
     <string name="bmi_upper">&lt;font color=\'#999999\'&gt;测量结果： &lt;/font&gt;&lt;strong&gt;&lt;big&gt;&lt;font color=\'#ff4444\'&gt;%.2f&lt;/font&gt;&lt;/big&gt;&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;font color=\'#999999\'&gt;结果偏胖，请注意饮食并加强锻炼&lt;/font&gt;</string>
 
     <string name="news_title">知天下</string>
+
+    <!-- 高斯模糊 -->
+    <string name="shuffle">随机排列</string>
+    <string name="shift">随机移动</string>
+    <string name="gaussian">高斯模糊</string>
+    <string name="cancel_blur">取消模糊</string>
+
 </resources>

@@ -19,4 +19,10 @@
     <style name="WelcomeTheme" parent="Theme.AppCompat.Light.NoActionBar">
     </style>
 
+    <style name="main_activity_btn">
+        <item name="android:background">@drawable/common_btn_round</item>
+        <item name="android:textColor">@color/colorBlue50</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
 </resources>

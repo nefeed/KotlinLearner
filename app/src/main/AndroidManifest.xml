@@ -25,6 +25,7 @@
         <activity android:name=".ui.bmi.BMIActivity" />
         <activity android:name=".ui.news.NewsActivity" />
         <activity android:name=".ui.news.NewsPageActivity" />
+        <activity android:name=".ui.gaussian.GaussianActivity" />
 
     </application>
 
