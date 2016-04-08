@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="D:\AndroidProject\MusicPlayerView-master\playerview\res"><file name="icon_pause" path="D:\AndroidProject\MusicPlayerView-master\playerview\res\drawable\icon_pause.png" qualifiers="" type="drawable"/><file name="icon_play" path="D:\AndroidProject\MusicPlayerView-master\playerview\res\drawable\icon_play.png" qualifiers="" type="drawable"/><file path="D:\AndroidProject\MusicPlayerView-master\playerview\res\values\attrs.xml" qualifiers=""><declare-styleable name="playerview">
+        <attr format="integer" name="cover"/>
+        <attr format="color" name="buttonColor"/>
+        <attr format="color" name="progressEmptyColor"/>
+        <attr format="color" name="progressLoadedColor"/>
+        <attr format="color" name="textColor"/>
+        <attr format="dimension" name="textSize"/>
+    </declare-styleable></file><file path="D:\AndroidProject\MusicPlayerView-master\playerview\res\values\dimens.xml" qualifiers=""><dimen name="pause_bar_width">48dp</dimen><dimen name="pause_bar_distance">40dp</dimen><dimen name="pause_bar_height">144dp</dimen></file></source><source path="D:\AndroidProject\MusicPlayerView-master\playerview\build\generated\res\rs\release"/><source path="D:\AndroidProject\MusicPlayerView-master\playerview\build\generated\res\resValues\release"/></dataSet><dataSet config="release"><source path="D:\AndroidProject\MusicPlayerView-master\playerview\src\release\res"/></dataSet><mergedItems><configuration qualifiers=""><declare-styleable name="playerview"><attr format="integer" name="cover"/><attr format="color" name="buttonColor"/><attr format="color" name="progressEmptyColor"/><attr format="color" name="progressLoadedColor"/><attr format="color" name="textColor"/><attr format="dimension" name="textSize"/></declare-styleable></configuration></mergedItems></merger>

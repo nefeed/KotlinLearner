@@ -24,6 +24,8 @@
 
     <string name="news_title">知天下</string>
 
+    <string name="music_title">音乐大玩家</string>
+
     <!-- 高斯模糊 -->
     <string name="shuffle">随机排列</string>
     <string name="shift">随机移动</string>

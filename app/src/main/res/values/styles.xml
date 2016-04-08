@@ -19,6 +19,14 @@
     <style name="WelcomeTheme" parent="Theme.AppCompat.Light.NoActionBar">
     </style>
 
+    <style name="MusicTheme" parent="AppTheme">
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+
+
+    <!-- widget style -->
     <style name="main_activity_btn">
         <item name="android:background">@drawable/common_btn_round</item>
         <item name="android:textColor">@color/colorBlue50</item>

@@ -1,0 +1,64 @@
+[
+    {
+        "outputFile": "D:\\AndroidProject\\KotlinLearner\\playerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 373,
+                    "endColumn": 49,
+                    "endOffset": 418
+                },
+                "from": {
+                    "file": "D:\\AndroidProject\\KotlinLearner\\playerview\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 373,
+                        "endColumn": 49,
+                        "endOffset": 418
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 423,
+                    "endColumn": 48,
+                    "endOffset": 467
+                },
+                "from": {
+                    "file": "D:\\AndroidProject\\KotlinLearner\\playerview\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 423,
+                        "endColumn": 48,
+                        "endOffset": 467
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 472,
+                    "endColumn": 46,
+                    "endOffset": 514
+                },
+                "from": {
+                    "file": "D:\\AndroidProject\\KotlinLearner\\playerview\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 472,
+                        "endColumn": 46,
+                        "endOffset": 514
+                    }
+                }
+            }
+        ]
+    }
+]

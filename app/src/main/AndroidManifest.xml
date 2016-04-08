@@ -26,6 +26,7 @@
         <activity android:name=".ui.news.NewsActivity" />
         <activity android:name=".ui.news.NewsPageActivity" />
         <activity android:name=".ui.gaussian.GaussianActivity" />
+        <activity android:name=".ui.music.MusicPlayerActivity" />
 
     </application>
 
