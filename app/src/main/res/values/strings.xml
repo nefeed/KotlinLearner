@@ -4,6 +4,7 @@
     <string name="go_into_bmi">测量体质指数（BMI）</string>
     <string name="go_into_news">去看看这个世界</string>
     <string name="go_into_gaussian">高斯模糊有多模糊</string>
+    <string name="go_into_music">管他什么天，音乐都配</string>
     <string name="unknown_wrong">系统未知错误</string>
     <string name="menu_settings">设置</string>
     <string name="menu_about">关于</string>
@@ -24,12 +25,14 @@
 
     <string name="news_title">知天下</string>
 
-    <string name="music_title">音乐大玩家</string>
 
     <!-- 高斯模糊 -->
     <string name="shuffle">随机排列</string>
     <string name="shift">随机移动</string>
     <string name="gaussian">高斯模糊</string>
     <string name="cancel_blur">取消模糊</string>
+
+    <!-- 音乐子模块 -->
+    <string name="music_title">音乐大玩家</string>
 
 </resources>

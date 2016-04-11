@@ -6,6 +6,7 @@ import com.gavin.kotlinlearner.R.string.*
 import com.gavin.kotlinlearner.ui.base.BaseActivity
 import com.gavin.kotlinlearner.ui.bmi.BMIActivity
 import com.gavin.kotlinlearner.ui.gaussian.GaussianActivity
+import com.gavin.kotlinlearner.ui.music.MusicPlayerActivity
 import com.gavin.kotlinlearner.ui.news.NewsPageActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
@@ -37,6 +38,11 @@ class MainActivity : BaseActivity() {
         btGaussian.textResource = go_into_gaussian
         btGaussian.setOnClickListener {
             startActivity<GaussianActivity>()
+        }
+
+        btMusic.textResource = go_into_music
+        btMusic.setOnClickListener {
+            startActivity<MusicPlayerActivity>()
         }
     }
 }

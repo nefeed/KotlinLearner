@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:background="#25272d" >
 
     <TextView
@@ -14,7 +15,7 @@
         android:textColor="@android:color/white"
         android:textSize="22sp"
         android:text="Rock With You"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="@dimen/activity_vertical_margin"/>
 
 
     <TextView
@@ -29,26 +30,47 @@
         android:layout_below="@+id/textViewSong"/>
 
 
-    <co.mobiwise.playerview.MusicPlayerView
-        android:id="@+id/mpv"
+    <com.gavin.playerview.MusicPlayerView
+        android:id="@+id/musicPlayer"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:layout_below="@+id/textViewSinger"
         app:textSize = "14sp"
         app:textColor = "@color/colorBlue50"
         app:buttonColor="@color/colorPrimary"
         app:progressLoadedColor = "@color/colorBlue300" />
 
+    <LinearLayout
+        android:id="@+id/llTimeLine"
+        android:layout_below="@+id/musicPlayer"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:orientation="vertical">
+
+        <SeekBar
+            android:id="@+id/musicSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:maxHeight="8dp"
+            android:progressDrawable="@drawable/music_seekbar_progress"
+            android:thumb="@drawable/music_progress_point"/>
+
+    </LinearLayout>
+
+
     <ImageView
         android:id="@+id/like"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:background="@drawable/icon_like"
-        android:layout_below="@+id/mpv"
+        android:layout_below="@+id/musicPlayer"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="65dp"/>
 
 
     <ImageView
@@ -56,9 +78,9 @@
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:background="@drawable/icon_next"
-        android:layout_below="@+id/mpv"
-        android:layout_alignRight="@+id/mpv"
-        android:layout_marginTop="50dp"/>
+        android:layout_below="@+id/musicPlayer"
+        android:layout_alignRight="@+id/musicPlayer"
+        android:layout_marginTop="65dp"/>
 
 
     <ImageView
@@ -66,8 +88,8 @@
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:background="@drawable/icon_previous"
-        android:layout_below="@+id/mpv"
-        android:layout_alignLeft="@+id/mpv"
-        android:layout_marginTop="50dp"/>
+        android:layout_below="@+id/musicPlayer"
+        android:layout_alignLeft="@+id/musicPlayer"
+        android:layout_marginTop="65dp"/>
 
 </RelativeLayout>
