@@ -1,11 +1,14 @@
 package com.gavin.kotlinlearner.ui.music
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Message
 import android.view.View
 import android.widget.SeekBar
 import com.gavin.kotlinlearner.R
 import com.gavin.kotlinlearner.R.string.music_title
 import com.gavin.kotlinlearner.ui.base.BaseActivity
+import com.gavin.playerview.MusicPlayerView
 import kotlinx.android.synthetic.main.activity_music.*
 
 /**
@@ -18,6 +21,8 @@ import kotlinx.android.synthetic.main.activity_music.*
 class MusicPlayerActivity: BaseActivity() {
 
     override var TAG: String = this.javaClass.simpleName
+    var mMusicSeekBar: SeekBar ?= null
+    var mPlayingHandler: PlayingHandler ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,18 +30,21 @@ class MusicPlayerActivity: BaseActivity() {
         supportActionBar?.elevation = .0f
         setTitle(music_title)
 
+        mPlayingHandler = PlayingHandler()
+        var _playingListener = KotlinPlayingListener()
+        musicPlayer.setPlayingListener(_playingListener)
+
         // 设置封面图片
         musicPlayer.setCoverURL("https://upload.wikimedia.org/wikipedia/en/b/b3/MichaelsNumberOnes.JPG")
         musicPlayer.setOnClickListener(View.OnClickListener {
-            if (musicPlayer.isRotating()) {
+            if (musicPlayer.isRotating) {
                 musicPlayer.stop()
             } else {
                 musicPlayer.start()
             }
         })
-
-        musicPlayer.setMax(320)
-        musicSeekBar.max = 320
+        musicSeekBar.max = 140
+        musicPlayer.setMax(musicSeekBar.max)
         musicSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, b: Boolean) {
                 musicPlayer.progress = progress
@@ -50,5 +58,27 @@ class MusicPlayerActivity: BaseActivity() {
             }
         })
 
+    }
+
+    inner class KotlinPlayingListener: MusicPlayerView.PlayingListener {
+        override fun playing(progress: Int) {
+            musicSeekBar.progress = progress
+//            Thread(){
+//                run {
+//                    mPlayingHandler?.sendEmptyMessage(progress)
+//                }
+//            }.start()
+        }
+    }
+
+    inner class PlayingHandler: Handler() {
+        override fun handleMessage(msg: Message?) {
+            super.handleMessage(msg)
+            if (msg?.what == null) {
+                musicSeekBar.progress = 0
+            } else {
+                musicSeekBar.progress = msg!!.what
+            }
+        }
     }
 }

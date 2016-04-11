@@ -44,6 +44,16 @@ import com.squareup.picasso.Target;
 
 public class MusicPlayerView extends View implements OnPlayPauseToggleListener {
 
+  public interface PlayingListener {
+    public void playing(int progress);
+  }
+
+  private PlayingListener mPlayingListener;
+
+  public void setPlayingListener(PlayingListener playingListener) {
+    this.mPlayingListener = playingListener;
+  }
+
   /**
    * Rect for get time height and width
    */
@@ -158,6 +168,7 @@ public class MusicPlayerView extends View implements OnPlayPauseToggleListener {
     @Override public void run() {
       if (isRotating) {
         currentProgress++;
+        mPlayingListener.playing(currentProgress);
         mHandlerProgress.postDelayed(mRunnableProgress, PROGRESS_SECOND_MS);
       }
     }
@@ -512,7 +523,6 @@ public class MusicPlayerView extends View implements OnPlayPauseToggleListener {
    * Start turning image
    */
   public void start() {
-
     isRotating = true;
     mPlayPauseDrawable.setPlaying(isRotating);
     mHandlerRotate.removeCallbacksAndMessages(null);
