@@ -11,16 +11,15 @@
         android:layout_centerHorizontal="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:clipToPadding="true"
+        android:scaleType="fitXY"
         android:fitsSystemWindows="true"
-        android:src="@drawable/default_welcome"/>
+        android:src="@drawable/welcome_bg_10"/>
 
     <ImageView
         android:id="@+id/welcomeAppLogo"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="88dp"
         android:background="@drawable/welcome_info_logo"/>
 
 </RelativeLayout>
