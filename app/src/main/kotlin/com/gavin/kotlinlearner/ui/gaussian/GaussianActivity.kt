@@ -27,7 +27,7 @@ import java.util.*
  */
 class GaussianActivity : BaseActivity() {
 
-    override var TAG: String = this.javaClass.simpleName
+    override val TAG: String = this.javaClass.simpleName
 
     var mImageViews: ArrayList<ImageView> = ArrayList()
     var mImages: IntArray = intArrayOf(R.drawable.p0, R.drawable.p1,

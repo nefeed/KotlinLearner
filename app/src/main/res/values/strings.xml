@@ -5,10 +5,23 @@
     <string name="go_into_news">去看看这个世界</string>
     <string name="go_into_gaussian">高斯模糊有多模糊</string>
     <string name="go_into_music">管他什么天，音乐都配</string>
+    <string name="drawer_open">打开</string>
+    <string name="drawer_close">关闭</string>
+
+    <string-array name="nav_drawer_items">
+        <item>@string/go_into_bmi</item>
+        <item>@string/go_into_news</item>
+        <item>@string/go_into_gaussian</item>
+        <item>@string/go_into_music</item>
+    </string-array>
+
     <string name="unknown_wrong">系统未知错误</string>
     <string name="menu_settings">设置</string>
     <string name="menu_about">关于</string>
     <string name="menu_quit">退出</string>
+
+    <!-- Google Ads -->
+    <string name="banner_ad_unit_id">ca-app-pub-6275555609904049/4084884213</string>
 
     <string name="sex_man">男</string>
     <string name="sex_woman">女</string>

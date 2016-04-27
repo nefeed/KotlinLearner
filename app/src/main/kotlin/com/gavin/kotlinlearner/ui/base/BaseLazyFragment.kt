@@ -10,7 +10,8 @@ import android.os.Bundle
  * Time: 15:51
  */
 open class BaseLazyFragment: BaseFragment() {
-    override var TAG: String = this.javaClass.simpleName
+
+    override val TAG: String = this.javaClass.simpleName
 
     protected var isPrepared: Boolean = false
     /**

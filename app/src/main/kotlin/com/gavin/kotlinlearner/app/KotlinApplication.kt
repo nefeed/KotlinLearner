@@ -16,7 +16,7 @@ class KotlinApplication : Application() {
 
     companion object {
 
-        var mAppContext :Context ?= null
+        var sContext :Context ?= null
         var mActivityList :LinkedList<Activity> = LinkedList();
 
         fun addActivity(activity: Activity) {
@@ -43,7 +43,7 @@ class KotlinApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        mAppContext = applicationContext
+        sContext = applicationContext
     }
 
     override fun onLowMemory() {

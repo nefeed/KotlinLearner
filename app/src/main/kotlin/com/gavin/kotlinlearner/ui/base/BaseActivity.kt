@@ -18,7 +18,7 @@ import com.gavin.kotlinlearner.app.KotlinApplication
  */
 open class BaseActivity: AppCompatActivity() {
 
-    protected open var TAG: String = this.javaClass.simpleName
+    protected open val TAG: String = this.javaClass.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,10 +55,10 @@ open class BaseActivity: AppCompatActivity() {
 
         //noinspection SimplifiableIfStatement
         when(id) {
-            android.R.id.home -> {finish()}
+            android.R.id.home -> finish()
             R.id.menu_settings -> { println("点击了设置"); toast("点击了设置") }
             R.id.menu_about -> { println("点击了关于"); toast("点击了关于") }
-            R.id.menu_quit -> { KotlinApplication.exit() }
+            R.id.menu_quit -> KotlinApplication.exit()
         }
 
         return super.onOptionsItemSelected(item)

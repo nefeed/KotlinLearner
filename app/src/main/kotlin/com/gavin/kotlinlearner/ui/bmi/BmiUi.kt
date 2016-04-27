@@ -9,6 +9,7 @@ import com.gavin.kotlinlearner.R
 import com.gavin.kotlinlearner.R.string.*
 import com.gavin.kotlinlearner.app.Const
 import com.gavin.kotlinlearner.widget.bmiLogoView
+import com.google.android.gms.ads.AdView
 import org.jetbrains.anko.*
 
 /**
@@ -26,6 +27,7 @@ class BmiUi : AnkoComponent<BMIActivity> {
     var mRgSex: RadioGroup ?= null
     var mRbSexMan: RadioButton ?= null
     var mRbSexWoMan: RadioButton ?= null
+    var mAdView: AdView ?= null;
     var mSex: Int = -1
 
     private val customeStyle = { v: Any ->

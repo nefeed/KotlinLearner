@@ -13,7 +13,7 @@ import org.jetbrains.anko.toast
  */
 abstract class BaseFragment : Fragment() {
 
-    open var TAG: String = this.javaClass.simpleName
+    open val TAG: String = this.javaClass.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

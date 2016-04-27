@@ -8,13 +8,14 @@ import com.gavin.kotlinlearner.ui.bmi.BMIActivity
 import com.gavin.kotlinlearner.ui.gaussian.GaussianActivity
 import com.gavin.kotlinlearner.ui.music.MusicPlayerActivity
 import com.gavin.kotlinlearner.ui.news.NewsPageActivity
+import com.google.android.gms.ads.AdRequest
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.textResource
 
 class MainActivity : BaseActivity() {
 
-    override var TAG: String = this.javaClass.simpleName
+    override val TAG: String = this.javaClass.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +44,18 @@ class MainActivity : BaseActivity() {
         btMusic.textResource = go_into_music
         btMusic.setOnClickListener {
             startActivity<MusicPlayerActivity>()
+        }
+
+        var adRequest: AdRequest = AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+    }
+
+    fun displayView(position: Int) {
+        when(position) {
+            0 -> startActivity<BMIActivity>()
+            1 -> startActivity<NewsPageActivity>()
+            2 -> startActivity<GaussianActivity>()
+            3 -> startActivity<MusicPlayerActivity>()
         }
     }
 }
