@@ -1,6 +1,7 @@
 package com.gavin.kotlinlearner.ui
 
 import android.os.Bundle
+import android.support.v7.app.ActionBarDrawerToggle
 import com.gavin.kotlinlearner.R
 import com.gavin.kotlinlearner.R.string.*
 import com.gavin.kotlinlearner.ui.base.BaseActivity
@@ -10,17 +11,30 @@ import com.gavin.kotlinlearner.ui.music.MusicPlayerActivity
 import com.gavin.kotlinlearner.ui.news.NewsPageActivity
 import com.google.android.gms.ads.AdRequest
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.toolbar.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.textResource
 
 class MainActivity : BaseActivity() {
 
     override val TAG: String = this.javaClass.simpleName
+    var mDrawerToggle: ActionBarDrawerToggle ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(false)
+        setSupportActionBar(toolbar)
+
+        // Navigation Icon 要設定在 setSupoortActionBar 才有作用
+        // 否則會出現 back button
+//        toolbar.navigationIcon =
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true);
+        mDrawerToggle = ActionBarDrawerToggle(this, drawer, toolbar, R.string.drawer_open,
+        R.string.drawer_close)
+        mDrawerToggle?.syncState();
+        drawer.addDrawerListener(mDrawerToggle as ActionBarDrawerToggle);
+
 
         tvWelcome.text = getString(main_welcome)
         tvWelcome.setOnClickListener {
