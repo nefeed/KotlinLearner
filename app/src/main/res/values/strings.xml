@@ -21,7 +21,8 @@
     <string name="menu_quit">退出</string>
 
     <!-- Google Ads -->
-    <string name="banner_ad_unit_id">ca-app-pub-6275555609904049/4084884213</string>
+    <string name="banner_ad_main_id">ca-app-pub-6275555609904049/4084884213</string>
+    <string name="interstitial_ad_welcome_id">ca-app-pub-6275555609904049/3546390218</string>
 
     <string name="sex_man">男</string>
     <string name="sex_woman">女</string>

@@ -22,7 +22,7 @@ class NavDrawerAdapter(title: Array<String>): RecyclerView.Adapter<NavDrawerAdap
 
     var mTitles: Array<String> = title
     var mChoosedPosition = 0;
-    var mResources = KotlinApplication.sContext?.resources
+    var mResources = KotlinApplication.sContext!!.resources
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): NavDrawerViewHolder? {
         var _rootView = LayoutInflater.from(KotlinApplication.sContext).inflate(R.layout.listitem_nav_drawer, parent, false)
@@ -32,7 +32,9 @@ class NavDrawerAdapter(title: Array<String>): RecyclerView.Adapter<NavDrawerAdap
     override fun onBindViewHolder(holder: NavDrawerViewHolder, position: Int) {
         var _currentItem = mTitles[position]
         holder.mTitle.text = _currentItem
-        holder.mTitle.textColor = if (position == mChoosedPosition) R.color.colorPrimary else Color.LTGRAY
+        holder.mTitle.textColor = if (position == mChoosedPosition)
+            mResources.getColor(R.color.colorPrimary)
+            else Color.GRAY
     }
 
     override fun getItemCount(): Int {

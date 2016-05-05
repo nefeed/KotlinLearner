@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlWelcome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clipToPadding="true"
-    android:fitsSystemWindows="true" >
+    android:fitsSystemWindows="true"
+    android:clipToPadding="false" >
 
     <ImageView
         android:id="@+id/wallPaper"
@@ -12,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:fitsSystemWindows="true"
         android:src="@drawable/welcome_bg_10"/>
 
     <ImageView
