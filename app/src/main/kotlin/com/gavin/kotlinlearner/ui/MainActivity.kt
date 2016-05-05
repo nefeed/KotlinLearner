@@ -2,10 +2,12 @@ package com.gavin.kotlinlearner.ui
 
 import android.os.Bundle
 import android.support.v7.app.ActionBarDrawerToggle
+import android.view.View
 import com.gavin.kotlinlearner.R
 import com.gavin.kotlinlearner.R.string.*
 import com.gavin.kotlinlearner.ui.base.BaseActivity
 import com.gavin.kotlinlearner.ui.bmi.BMIActivity
+import com.gavin.kotlinlearner.ui.drawer.MainDrawerFragment
 import com.gavin.kotlinlearner.ui.gaussian.GaussianActivity
 import com.gavin.kotlinlearner.ui.music.MusicPlayerActivity
 import com.gavin.kotlinlearner.ui.news.NewsPageActivity
@@ -18,6 +20,11 @@ import org.jetbrains.anko.textResource
 class MainActivity : BaseActivity() {
 
     override val TAG: String = this.javaClass.simpleName
+    val GO_INTO_BMI = 0
+    val GO_INTO_NEWS = 1
+    val GO_INTO_GAUSSIAN = 2
+    val GO_INTO_MUSIC = 3
+
     var mDrawerToggle: ActionBarDrawerToggle ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,8 +37,8 @@ class MainActivity : BaseActivity() {
 //        toolbar.navigationIcon =
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true);
-        mDrawerToggle = ActionBarDrawerToggle(this, drawer, toolbar, R.string.drawer_open,
-        R.string.drawer_close)
+        mDrawerToggle = ActionBarDrawerToggle(this, drawer, toolbar, drawer_open,
+                drawer_close)
         mDrawerToggle?.syncState();
         drawer.addDrawerListener(mDrawerToggle as ActionBarDrawerToggle);
 
@@ -42,34 +49,45 @@ class MainActivity : BaseActivity() {
         }
         btBmi.textResource = go_into_bmi
         btBmi.setOnClickListener {
-            startActivity<BMIActivity>()
+            displayView(GO_INTO_BMI)
         }
 
         btNews.textResource = go_into_news
         btNews.setOnClickListener {
-            startActivity<NewsPageActivity>()
+            displayView(GO_INTO_NEWS)
         }
 
         btGaussian.textResource = go_into_gaussian
         btGaussian.setOnClickListener {
-            startActivity<GaussianActivity>()
+            displayView(GO_INTO_GAUSSIAN)
         }
 
         btMusic.textResource = go_into_music
         btMusic.setOnClickListener {
-            startActivity<MusicPlayerActivity>()
+            displayView(GO_INTO_MUSIC)
         }
 
-        var adRequest: AdRequest = AdRequest.Builder().build();
-        adView.loadAd(adRequest);
+        var _FragmentDrawer = supportFragmentManager.findFragmentById(R.id.fragDrawer) as MainDrawerFragment
+        _FragmentDrawer.init(R.id.fragDrawer, drawer, toolbar)
+        _FragmentDrawer.setDrawerEventListener(mDrawerEventListener)
+
+
+        var adRequest: AdRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
+    }
+
+    val mDrawerEventListener = object : MainDrawerFragment.DrawerEventListener {
+        override fun onItemSelected(view: View, position: Int) {
+            displayView(position)
+        }
     }
 
     fun displayView(position: Int) {
         when(position) {
-            0 -> startActivity<BMIActivity>()
-            1 -> startActivity<NewsPageActivity>()
-            2 -> startActivity<GaussianActivity>()
-            3 -> startActivity<MusicPlayerActivity>()
+            GO_INTO_BMI -> startActivity<BMIActivity>()
+            GO_INTO_NEWS -> startActivity<NewsPageActivity>()
+            GO_INTO_GAUSSIAN -> startActivity<GaussianActivity>()
+            GO_INTO_MUSIC -> startActivity<MusicPlayerActivity>()
         }
     }
 }

@@ -52,5 +52,9 @@ dependencies {
     compile 'com.alibaba:fastjson:1.2.8'
     compile 'com.facebook.fresco:fresco:0.9.0'
     compile 'com.google.android.gms:play-services-ads:8.4.0'
+    // Material Design EditText
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+    // 代替Log的调试工具
+    compile 'com.jakewharton.timber:timber:4.1.2'
 }
 

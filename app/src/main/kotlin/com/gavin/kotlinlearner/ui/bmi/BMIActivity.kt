@@ -5,6 +5,7 @@ import com.gavin.kotlinlearner.R.string.*
 import com.gavin.kotlinlearner.app.Const
 import com.gavin.kotlinlearner.ui.base.BaseActivity
 import org.jetbrains.anko.*
+import timber.log.Timber
 
 /**
  * User: Gavin
@@ -30,6 +31,9 @@ class BMIActivity : BaseActivity() {
         BmiUi().setContentView(this)
 
         setTitle(bmi_title)
+
+        Timber.tag("BMIActivity")
+        Timber.d("BMIActivity onCreate()")
 
     }
 

@@ -3,6 +3,8 @@ package com.gavin.kotlinlearner.app
 import android.app.Activity
 import android.app.Application
 import android.content.Context
+import com.gavin.kotlinlearner.BuildConfig
+import timber.log.Timber
 import java.util.*
 
 /**
@@ -44,6 +46,10 @@ class KotlinApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         sContext = applicationContext
+
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree());
+        }
     }
 
     override fun onLowMemory() {

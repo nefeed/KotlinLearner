@@ -32,9 +32,9 @@ class MainDrawerFragment: BaseFragment() {
     private var mDrawerEventListener: DrawerEventListener ?= null
     private var mDrawerLayout: DrawerLayout? = null
     private var mContainerView: View? = null
-    private var mDrawerToggle: ActionBarDrawerToggle? = null
+    private var mDrawerToggle: ActionBarDrawerToggle ?= null
 
-    interface DrawerEventListener {
+    open interface DrawerEventListener {
         fun onItemSelected(view: View, position: Int)
     }
 
@@ -47,19 +47,21 @@ class MainDrawerFragment: BaseFragment() {
         mTitles = arrayOf(getString(R.string.go_into_bmi), getString(R.string.go_into_news), getString(R.string.go_into_gaussian), getString(R.string.go_into_music))
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val _viewRoot: View = inflater.inflate(R.layout.fragment_navigation_drawer, container, false)
-        var _rvNavDrawerItems: RecyclerView = _viewRoot.findViewById(R.id.rvNavDrawerItems) as RecyclerView
-        mNavDrawerAdapter = NavDrawerAdapter(mTitles!!)
-        _rvNavDrawerItems.adapter = mNavDrawerAdapter
-        _rvNavDrawerItems.layoutManager = LinearLayoutManager(KotlinApplication.sContext)
-        _rvNavDrawerItems.addOnItemTouchListener(NavDrawerRecyclerTouchListener(rvNavDrawerItems, NavRecyclerClickListenerImpl()))
-
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val _viewRoot: View = inflater!!.inflate(R.layout.fragment_navigation_drawer, container, false)
         return _viewRoot
     }
 
-    fun initilize(containView: View, drawerLayout: DrawerLayout, toolbar: Toolbar) {
-        mContainerView = containView
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        mNavDrawerAdapter = NavDrawerAdapter(mTitles!!)
+        rvNavDrawerItems.adapter = mNavDrawerAdapter
+        rvNavDrawerItems.layoutManager = LinearLayoutManager(KotlinApplication.sContext)
+        rvNavDrawerItems.addOnItemTouchListener(NavDrawerRecyclerTouchListener(rvNavDrawerItems, NavRecyclerClickListenerImpl()))
+    }
+
+    fun init(fragmentId: Int, drawerLayout: DrawerLayout, toolbar: Toolbar) {
+        mContainerView = getActivity().findViewById(fragmentId)
         mDrawerLayout = drawerLayout
         mDrawerToggle = object : ActionBarDrawerToggle(activity, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close) {
             override fun onDrawerOpened(drawerView: View?) {
@@ -74,11 +76,11 @@ class MainDrawerFragment: BaseFragment() {
 
             override fun onDrawerSlide(drawerView: View?, slideOffset: Float) {
                 super.onDrawerSlide(drawerView, slideOffset)
-                toolbar.alpha = 1 - slideOffset / 2
+//                toolbar.alpha = 1 - slideOffset / 2
             }
         }
 
-        (mDrawerLayout as DrawerLayout).setDrawerListener(mDrawerToggle)
+        (mDrawerLayout as DrawerLayout).addDrawerListener(mDrawerToggle as ActionBarDrawerToggle)
         (mDrawerLayout as DrawerLayout).post(Runnable { (mDrawerToggle as ActionBarDrawerToggle).syncState() })
     }
 
