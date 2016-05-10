@@ -49,4 +49,12 @@
     <!-- 音乐子模块 -->
     <string name="music_title">音乐大玩家</string>
 
+    <!-- 6.0 android M 需要开启运行时异常校验 -->
+    <string name="permission">权限</string>
+    <string name="no_permissions">缺少必要权限</string>
+    <string name="permission_settings">设置</string>
+    <string name="permission_title">帮助</string>
+    <string name="permission_content">【鸿运当投】缺少必要权限，是否开启？</string>
+    <string name="permission_ignore">本次忽略</string>
+
 </resources>

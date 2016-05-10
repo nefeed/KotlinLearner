@@ -36,6 +36,15 @@
         <item name="colorAccent">@color/colorBlue100</item>
     </style>
 
+    <style name="TranslucentAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/colorBasicTranslucentSixWhite</item>
+        <item name="android:windowNoTitle">true</item>
+        <!--<item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>-->
+        <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
+    </style>
+
     <style name="ToolBarStyle" parent="">
         <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
         <item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
@@ -46,6 +55,13 @@
         <item name="android:background">@drawable/common_btn_round</item>
         <item name="android:textColor">@color/colorBlue50</item>
         <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="AnimationActivity" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/push_bottom_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/zoom_enter</item>
+        <item name="android:activityCloseExitAnimation">@anim/zoom_exit</item>
     </style>
 
 </resources>

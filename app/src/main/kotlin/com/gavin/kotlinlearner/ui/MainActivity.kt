@@ -16,6 +16,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.textResource
+import uk.co.deanwild.materialshowcaseview.MaterialShowcaseSequence
+import uk.co.deanwild.materialshowcaseview.ShowcaseConfig
 
 class MainActivity : BaseActivity() {
 
@@ -24,6 +26,7 @@ class MainActivity : BaseActivity() {
     val GO_INTO_NEWS = 1
     val GO_INTO_GAUSSIAN = 2
     val GO_INTO_MUSIC = 3
+    val MAIN_ACTIVITY_SHADOW_ID = "MainActivityShadow"
 
     var mDrawerToggle: ActionBarDrawerToggle ?= null
 
@@ -36,11 +39,11 @@ class MainActivity : BaseActivity() {
         // 否則會出現 back button
 //        toolbar.navigationIcon =
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         mDrawerToggle = ActionBarDrawerToggle(this, drawer, toolbar, drawer_open,
                 drawer_close)
-        mDrawerToggle?.syncState();
-        drawer.addDrawerListener(mDrawerToggle as ActionBarDrawerToggle);
+        mDrawerToggle?.syncState()
+        drawer.addDrawerListener(mDrawerToggle as ActionBarDrawerToggle)
 
 
         tvWelcome.text = getString(main_welcome)
@@ -74,6 +77,21 @@ class MainActivity : BaseActivity() {
 
         var adRequest: AdRequest = AdRequest.Builder().build()
         adView.loadAd(adRequest)
+
+        // 新手引导遮罩案例
+        var config = ShowcaseConfig()
+        config.delay = 300 // half second between each showcase view
+        var sequence = MaterialShowcaseSequence(this, MAIN_ACTIVITY_SHADOW_ID)
+        sequence.setConfig(config)
+        sequence.addSequenceItem(btBmi,
+                "BMI测量页，点击开始BMI测量", "GOT IT")
+        sequence.addSequenceItem(btNews,
+                "新闻大世界，进入看新闻", "GOT IT")
+//        sequence.addSequenceItem(btGaussian,
+//                "想看看高斯模糊长什么样吗", "GOT IT")
+        sequence.addSequenceItem(btMusic,
+                "想听音乐，就来这里", "GOT IT")
+        sequence.start()
     }
 
     val mDrawerEventListener = object : MainDrawerFragment.DrawerEventListener {
