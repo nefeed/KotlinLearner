@@ -1,12 +1,17 @@
 package com.gavin.kotlinlearner.ui.welcome
 
+import android.Manifest
 import android.app.Activity
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.animation.Animation
 import android.view.animation.ScaleAnimation
 import com.gavin.kotlinlearner.R
 import com.gavin.kotlinlearner.app.KotlinApplication
 import com.gavin.kotlinlearner.ui.MainActivity
+import com.gavin.kotlinlearner.ui.permission.PermissionActivity
+import com.gavin.kotlinlearner.ui.permission.PermissionChecker
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
@@ -66,19 +71,7 @@ class WelcomeActivity : Activity() {
         val drawableId = mImages[mStartIndex % mImages.size]
         wallPaper.setImageResource(drawableId)
 
-        startAnimation()
-
-        async() {
-            Thread.sleep(1500)
-
-            activityUiThreadWithContext {
-                if (mInterstitialAd.isLoaded) {
-                    mInterstitialAd.show()
-                } else {
-                    goIntoMainActivity()
-                }
-            }
-        }
+        checkPermission()
     }
 
     fun startAnimation() {
@@ -93,7 +86,7 @@ class WelcomeActivity : Activity() {
         wallPaper.startAnimation(_scaleAnim.apply {
             repeatCount = 1
             repeatMode = Animation.REVERSE
-            duration = 1600
+            duration = 1700
         })
     }
 
@@ -103,10 +96,69 @@ class WelcomeActivity : Activity() {
         mInterstitialAd.loadAd(adRequest)
     }
 
+    fun finishInitialize() {
+        startAnimation()
+
+        async() {
+            Thread.sleep(1600)
+
+            activityUiThreadWithContext {
+                if (mInterstitialAd.isLoaded) {
+                    mInterstitialAd.show()
+                } else {
+                    goIntoMainActivity()
+                }
+            }
+        }
+
+    }
+
     fun goIntoMainActivity() {
         startActivity<MainActivity>()
         // activity切换的淡入淡出效果
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         finish()
+    }
+
+    /*********************
+     * Permission start
+     */
+    protected val REQUEST_CODE = 0 // 请求码
+
+    // 所需的全部权限
+    protected val mPermissions = arrayOf(
+            // 定位权限暂时不需要使用
+//            Manifest.permission.ACCESS_FINE_LOCATION,
+//            Manifest.permission.ACCESS_COARSE_LOCATION,
+            // 短信相关权限暂时不需要使用
+//            Manifest.permission.SEND_SMS,
+//            Manifest.permission.READ_SMS,
+            Manifest.permission.READ_PHONE_STATE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE)
+
+
+    protected fun checkPermission() {
+        var _permissionChecker: PermissionChecker = PermissionChecker(this) // 权限检测器
+        // Android版本号>Android M && 缺少权限时, 进入权限配置页面
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && _permissionChecker.lacksPermissions(mPermissions)) {
+            PermissionActivity.startActivityForResult(this, true, REQUEST_CODE, mPermissions)
+        } else {
+            finishInitialize()
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+        if (data != null) {
+            super.onActivityResult(requestCode, resultCode, data)
+        }
+        // 拒绝时, 关闭页面, 缺少主要权限, 无法运行
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == PermissionActivity.PERMISSIONS_GRANTED) {
+                // 用户允许了获取权限
+            } else if (resultCode == PermissionActivity.PERMISSIONS_DENIED) {
+                // 用户拒绝了获取权限
+            }
+            finishInitialize()
+        }
     }
 }

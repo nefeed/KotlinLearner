@@ -20,4 +20,13 @@
 
     <color name="colorMusicBackground">#25272d</color>
     <color name="colorMusicEmptyProgress">#20FFFFFF</color>
+
+    <color name="colorBasicWhite">#FFFFFF</color>
+    <color name="colorBasicWhitePressed">#eeeeee</color>
+    <color name="colorBasicLine">#cccccc</color>
+    <color name="colorBasicTextNine">#999999</color>
+    <color name="colorBasicTextSix">#666666</color>
+    <color name="colorBasicTranslucentSixWhite">#88ffffff</color>
+    <color name="colorBasicTranslucentNineWhite">#ddffffff</color>
+    <color name="colorBasicTranslucentNineBlack">#dd000000</color>
 </resources>

@@ -19,6 +19,15 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
 
+
+    signingConfigs {
+        ShireConfig {
+            storeFile file("./gavin_keystore.jks")
+            storePassword "gavin666"
+            keyAlias "GavinChangCN"
+            keyPassword "gavin666"
+        }
+    }
     defaultConfig {
         applicationId "com.gavin.kotlinlearner"
         minSdkVersion 21
@@ -28,7 +37,10 @@ android {
     }
     buildTypes {
         release {
+            signingConfig signingConfigs.ShireConfig
             minifyEnabled false
+            shrinkResources true
+            zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -56,5 +68,7 @@ dependencies {
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
     // 代替Log的调试工具
     compile 'com.jakewharton.timber:timber:4.1.2'
+    // 新手引导的阴影遮罩
+    compile 'com.github.deano2390:MaterialShowcaseView:1.1.0'
 }
 
