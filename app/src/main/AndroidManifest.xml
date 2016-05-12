@@ -31,7 +31,7 @@
         </activity>
 
         <activity android:name=".ui.MainActivity"
-            android:theme="@style/ToolBarTheme"
+            android:theme="@style/MainTheme"
             android:launchMode="singleTask"  />
 
         <!--Include the AdActivity configChanges and theme. -->

@@ -7,6 +7,7 @@ import android.view.View
 import com.gavin.kotlinlearner.R
 import com.gavin.kotlinlearner.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_news.*
+import kotlinx.android.synthetic.main.toolbar.*
 import java.util.*
 
 /**
@@ -30,7 +31,8 @@ class NewsPageActivity: BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_news)
-        supportActionBar!!.elevation = .0f
+        setSupportActionBar(toolbar)
+//        supportActionBar!!.elevation = .0f
         setTitle(R.string.news_title)
         mInflate = LayoutInflater.from(this)
         initUI()

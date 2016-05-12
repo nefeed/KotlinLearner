@@ -1,15 +1,7 @@
 *.iml
 .gradle
 .idea
-.gradle/*
-.idea/*
-app/build
-app/build/*
 local.properties
 .DS_Store
-/build
-/captures
-/lib_playerview/build
-/lib_playerview/build/*
-/lib_swipeback/build
-/lib_swipeback/build/*
+build
+captures

@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.gavin.kotlinlearner.R.string.*
 import com.gavin.kotlinlearner.app.Const
 import com.gavin.kotlinlearner.ui.base.BaseActivity
+import kotlinx.android.synthetic.main.toolbar.*
 import org.jetbrains.anko.*
 import timber.log.Timber
 
@@ -29,7 +30,7 @@ class BMIActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         BmiUi().setContentView(this)
-
+        setSupportActionBar(toolbar)
         setTitle(bmi_title)
 
         Timber.tag("BMIActivity")

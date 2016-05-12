@@ -23,11 +23,14 @@ open class BaseActivity: SwipeBackActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (supportActionBar != null) supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         KotlinApplication.addActivity(this)
         println("$TAG onCreate()")
     }
-
+    
+    override fun onResume() {
+        super.onResume()
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
 
     override fun onDestroy() {
         super.onDestroy()

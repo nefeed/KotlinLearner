@@ -30,127 +30,136 @@ class BmiUi : AnkoComponent<BMIActivity> {
     var mAdView: AdView ?= null;
     var mSex: Int = -1
 
+    override fun createView(ui: AnkoContext<BMIActivity>) = with(ui) {
+        verticalLayout {
+
+            include<Toolbar>(R.layout.toolbar)
+
+            verticalLayout {
+
+                padding = dip(16)
+
+                bmiLogoView()
+
+                linearLayout {
+
+                    matchParent
+
+                    textView {
+                        textResource = bmi_height
+                    }
+
+                    mEtHeight = editText {
+                        hintResource = bmi_hint_height
+                        inputType = TYPE_CLASS_NUMBER
+                    }.lparams {
+                        height = wrapContent
+                        width = matchParent
+                    }
+
+                }.lparams {
+                    height = wrapContent
+                    width = matchParent
+                }
+
+                linearLayout {
+
+                    matchParent
+
+                    textView {
+                        textResource = bmi_weight
+                    }
+
+                    mEtWeight = editText {
+                        hintResource = bmi_hint_weight
+                        inputType = TYPE_CLASS_NUMBER
+                    }.lparams {
+                        height = wrapContent
+                        width = matchParent
+                    }
+
+                }.lparams {
+                    height = wrapContent
+                    width = matchParent
+                }
+
+                mRgSex = radioGroup {
+
+                    bottomPadding = dip(10)
+
+                    orientation = RadioGroup.HORIZONTAL
+
+                    mRbSexWoMan = radioButton {
+                        textResource = sex_woman
+                    }
+
+                    mRbSexMan = radioButton {
+                        textResource = sex_man
+                    }
+
+                    onCheckedChange { radioGroup, i ->
+                        //                    mSex = i - 1
+                        //                    println("系统默认选中了：" + mSex)
+                        if ((mRbSexMan as RadioButton).isChecked) {
+                            mSex = Const.SEX_MAN
+                        } else if ((mRbSexWoMan as RadioButton).isChecked) {
+                            mSex = Const.SEX_WOMAN
+                        } else {
+                            mSex = -1
+                        }
+                        //                    println("您选中：" + mSex)
+                    }
+
+                }.lparams {
+                    height = wrapContent
+                    width = wrapContent
+                    gravity = Gravity.CENTER
+                }
+
+                button(bmi_calculate) {
+                    textColor = Color.WHITE
+                    backgroundResource = R.color.colorPrimary
+
+                    onClick {
+                        if (mEtHeight!!.text.toString().equals("")) {
+                            toast("请先输入您要测量的身高")
+                            mEtHeight!!.requestFocus()
+                        } else if ( mEtWeight!!.text.toString().equals("")) {
+                            toast("请先输入您要测量的体重")
+                            mEtWeight!!.requestFocus()
+                        } else if (mSex == -1) {
+                            toast("请先选择您测量对象的性别")
+                        } else {
+                            var _height :Float = (mEtHeight?.text.toString().toFloat() / 100)
+                            var _weight :Float = mEtWeight?.text.toString().toFloat()
+                            var _advice = ui.owner.calculateBmi(ui, _height, _weight, mSex)
+                            mTvAdvice?.text = Html.fromHtml(_advice.toString())
+                            mEtHeight!!.clearFocus()
+                            mEtWeight!!.clearFocus()
+                        }
+                    }
+                }
+
+                mTvAdvice = textView {
+                    padding = dip(10)
+                    gravity = Gravity.CENTER_HORIZONTAL
+                    textResource = bmi_advice
+                }
+
+            }
+
+        }.style( customeStyle )
+
+    }
+
     private val customeStyle = { v: Any ->
         when (v) {
-            is Button -> v.textSize = 20f;
+            is Button -> v.textSize = 20f
             is EditText -> v.textSize = 14f
-            is TextView -> v.textSize = 14f;
-            is RadioButton -> v.textSize = 14f;
+            is TextView -> v.textSize = 14f
+            is RadioButton -> v.textSize = 14f
         }
     }
 
-    override fun createView(ui: AnkoContext<BMIActivity>) = with(ui) {
-        verticalLayout {
-            padding = dip(16)
-
-            bmiLogoView()
-
-            linearLayout {
-
-                matchParent
-
-                textView {
-                    textResource = bmi_height
-                }
-
-                mEtHeight = editText {
-                    hintResource = bmi_hint_height
-                    inputType = TYPE_CLASS_NUMBER
-                }.lparams {
-                    height = wrapContent
-                    width = matchParent
-                }
-
-            }.lparams {
-                height = wrapContent
-                width = matchParent
-            }
-
-            linearLayout {
-
-                matchParent
-
-                textView {
-                    textResource = bmi_weight
-                }
-
-                mEtWeight = editText {
-                    hintResource = bmi_hint_weight
-                    inputType = TYPE_CLASS_NUMBER
-                }.lparams {
-                    height = wrapContent
-                    width = matchParent
-                }
-
-            }.lparams {
-                height = wrapContent
-                width = matchParent
-            }
-
-            mRgSex = radioGroup {
-
-                bottomPadding = dip(10)
-
-                orientation = RadioGroup.HORIZONTAL
-
-                mRbSexWoMan = radioButton {
-                    textResource = sex_woman
-                }
-
-                mRbSexMan = radioButton {
-                    textResource = sex_man
-                }
-
-                onCheckedChange { radioGroup, i ->
-//                    mSex = i - 1
-//                    println("系统默认选中了：" + mSex)
-                    if ((mRbSexMan as RadioButton).isChecked) {
-                        mSex = Const.SEX_MAN
-                    } else if ((mRbSexWoMan as RadioButton).isChecked) {
-                        mSex = Const.SEX_WOMAN
-                    } else {
-                        mSex = -1
-                    }
-//                    println("您选中：" + mSex)
-                }
-
-            }.lparams {
-                height = wrapContent
-                width = wrapContent
-                gravity = Gravity.CENTER
-            }
-
-            button(bmi_calculate) {
-                textColor = Color.WHITE;
-                backgroundResource = R.color.colorPrimary
-
-                onClick {
-                    if (mEtHeight!!.text.toString().equals("")) {
-                        toast("请先输入您要测量的身高")
-                        mEtHeight!!.requestFocus()
-                    } else if ( mEtWeight!!.text.toString().equals("")) {
-                        toast("请先输入您要测量的体重")
-                        mEtWeight!!.requestFocus()
-                    } else if (mSex == -1) {
-                        toast("请先选择您测量对象的性别")
-                    } else {
-                        var _height :Float = (mEtHeight?.text.toString().toFloat() / 100)
-                        var _weight :Float = mEtWeight?.text.toString().toFloat()
-                        var _advice = ui.owner.calculateBmi(ui, _height, _weight, mSex)
-                        mTvAdvice?.text = Html.fromHtml(_advice.toString())
-                        mEtHeight!!.clearFocus()
-                        mEtWeight!!.clearFocus()
-                    }
-                }
-            }
-
-            mTvAdvice = textView {
-                padding = dip(10)
-                gravity = Gravity.CENTER_HORIZONTAL
-                textResource = bmi_advice
-            }
-
-        }
-    }.style( customeStyle )
 
 }

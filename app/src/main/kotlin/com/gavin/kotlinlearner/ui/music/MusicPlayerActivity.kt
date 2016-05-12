@@ -10,6 +10,7 @@ import com.gavin.kotlinlearner.R.string.music_title
 import com.gavin.kotlinlearner.ui.base.BaseActivity
 import com.gavin.playerview.MusicPlayerView
 import kotlinx.android.synthetic.main.activity_music.*
+import kotlinx.android.synthetic.main.toolbar.*
 
 /**
  * User: Gavin
@@ -27,7 +28,8 @@ class MusicPlayerActivity: BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_music)
-        supportActionBar?.elevation = .0f
+        setSupportActionBar(toolbar)
+//        supportActionBar?.elevation = .0f
         setTitle(music_title)
 
         mPlayingHandler = PlayingHandler()

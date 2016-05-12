@@ -15,6 +15,7 @@ import com.gavin.kotlinlearner.R.string.gaussian
 import com.gavin.kotlinlearner.ui.base.BaseActivity
 import com.gavin.kotlinlearner.util.GaussianBlur
 import kotlinx.android.synthetic.main.activity_gaussianblur.*
+import kotlinx.android.synthetic.main.toolbar.*
 import org.jetbrains.anko.textResource
 import java.util.*
 
@@ -42,6 +43,7 @@ class GaussianActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gaussianblur)
+        setSupportActionBar(toolbar)
         setTitle(gaussian)
 
         mImageViews.add(0, image0)
