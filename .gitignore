@@ -9,5 +9,7 @@
 .DS_Store
 /build
 /captures
-/playerview/build
-/playerview/build/*
+/lib_playerview/build
+/lib_playerview/build/*
+/lib_swipeback/build
+/lib_swipeback/build/*

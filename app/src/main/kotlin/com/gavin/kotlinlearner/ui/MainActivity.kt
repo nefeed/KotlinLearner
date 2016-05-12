@@ -34,6 +34,7 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+        setSwipeBackEnable(false)
 
         // Navigation Icon 要設定在 setSupoortActionBar 才有作用
         // 否則會出現 back button

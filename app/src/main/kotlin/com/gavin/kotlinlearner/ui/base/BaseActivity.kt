@@ -2,12 +2,13 @@ package com.gavin.kotlinlearner.ui.base
 
 import android.app.Activity
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.gavin.kotlinlearner.R
 import com.gavin.kotlinlearner.app.KotlinApplication
+import com.gavin.swipeback.app.SwipeBackActivity
+
 
 /**
  * User: Gavin
@@ -16,7 +17,7 @@ import com.gavin.kotlinlearner.app.KotlinApplication
  * Date: 2016-03-21
  * Time: 17:15
  */
-open class BaseActivity: AppCompatActivity() {
+open class BaseActivity: SwipeBackActivity() {
 
     protected open val TAG: String = this.javaClass.simpleName
 
