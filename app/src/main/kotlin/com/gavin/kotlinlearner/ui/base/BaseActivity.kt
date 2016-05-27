@@ -26,7 +26,7 @@ open class BaseActivity: SwipeBackActivity() {
         KotlinApplication.addActivity(this)
         println("$TAG onCreate()")
     }
-    
+
     override fun onResume() {
         super.onResume()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

@@ -22,7 +22,6 @@ import kotlinx.android.synthetic.main.toolbar.*
 class MusicPlayerActivity: BaseActivity() {
 
     override var TAG: String = this.javaClass.simpleName
-    var mMusicSeekBar: SeekBar ?= null
     var mPlayingHandler: PlayingHandler ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,8 +44,11 @@ class MusicPlayerActivity: BaseActivity() {
                 musicPlayer.start()
             }
         })
-        musicSeekBar.max = 140
+        musicSeekBar.max = 240
         musicPlayer.setMax(musicSeekBar.max)
+        musicPlayer.progress = 0
+        musicSeekBar.progress = 0
+        musicPlayer.start()
         musicSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, b: Boolean) {
                 musicPlayer.progress = progress

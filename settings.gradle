@@ -1,1 +1,1 @@
-include ':app', ':lib_playerview', ":lib_swipeback"
+include ':app', ':lib_playerview', ":lib_swipeback", ':lib_showcaseview'

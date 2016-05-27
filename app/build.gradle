@@ -1,13 +1,13 @@
 buildscript {
-    ext.kotlin_version = '1.0.1'
+    ext.kotlin_version = '1.0.2'
     ext.anko_version = '0.8.2'
 
     repositories {
         jcenter()
     }
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.2"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:1.0.2"
     }
 }
 
@@ -53,23 +53,24 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':lib_playerview')
     compile project(':lib_swipeback')
+    compile project(':lib_showcaseview')
     testCompile 'junit:junit:4.12'
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile "org.jetbrains.anko:anko-sdk21:$anko_version"
+//    compile 'org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version'
+    compile 'org.jetbrains.kotlin:kotlin-stdlib:1.0.2'
+//    compile "org.jetbrains.anko:anko-sdk21:$anko_version"
+    compile 'org.jetbrains.anko:anko-sdk21:0.8.2'
     // sdk15, sdk19, sdk21, sdk23 are also available
-    compile "org.jetbrains.anko:anko-support-v4:$anko_version"
+    compile 'org.jetbrains.anko:anko-support-v4:0.8.2'
     // In case you need support-v4 bindings
-    compile "org.jetbrains.anko:anko-appcompat-v7:$anko_version" // For appcompat-v7 bindings
+    compile 'org.jetbrains.anko:anko-appcompat-v7:0.8.2' // For appcompat-v7 bindings
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:design:23.4.0'
     // Material Design EditText
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
     // 代替Log的调试工具
-    // 新手引导的阴影遮罩
-    compile 'com.android.support:appcompat-v7:23.3.0'
-    compile 'com.android.support:design:23.3.0'
+    compile 'com.jakewharton.timber:timber:4.1.2'
     compile 'com.alibaba:fastjson:1.2.8'
     compile 'com.facebook.fresco:fresco:0.9.0'
-    compile 'com.google.android.gms:play-services-ads:8.4.0'
-    compile 'com.rengwuxian.materialedittext:library:2.1.4'
-    compile 'com.jakewharton.timber:timber:4.1.2'
-    compile 'com.github.deano2390:MaterialShowcaseView:1.1.0'
+    compile 'com.google.android.gms:play-services-ads:9.0.0'
 }
 
