@@ -61,7 +61,7 @@ class MainDrawerFragment: BaseFragment() {
     }
 
     fun init(fragmentId: Int, drawerLayout: DrawerLayout, toolbar: Toolbar) {
-        mContainerView = getActivity().findViewById(fragmentId)
+        mContainerView = activity.findViewById(fragmentId)
         mDrawerLayout = drawerLayout
         mDrawerToggle = object : ActionBarDrawerToggle(activity, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close) {
             override fun onDrawerOpened(drawerView: View?) {

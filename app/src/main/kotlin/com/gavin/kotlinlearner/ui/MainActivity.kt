@@ -29,7 +29,6 @@ class MainActivity : BaseActivity() {
     val ACTIVITY_MUSIC = 3
     val MAIN_ACTIVITY_SHADOW_ID = "MainActivityShadow"
 
-    var mDrawerToggle: ActionBarDrawerToggle ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,10 +41,10 @@ class MainActivity : BaseActivity() {
 //        toolbar.navigationIcon =
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        mDrawerToggle = ActionBarDrawerToggle(this, drawer, toolbar, drawer_open,
+        val _drawerToggle = ActionBarDrawerToggle(this, drawer, toolbar, drawer_open,
                 drawer_close)
-        mDrawerToggle?.syncState()
-        drawer.addDrawerListener(mDrawerToggle as ActionBarDrawerToggle)
+        _drawerToggle.syncState()
+        drawer.addDrawerListener(_drawerToggle)
 
 
         tvWelcome.text = getString(main_welcome)
@@ -72,9 +71,9 @@ class MainActivity : BaseActivity() {
             enterIntoActivity(ACTIVITY_MUSIC)
         }
 
-        var _FragmentDrawer = supportFragmentManager.findFragmentById(R.id.fragDrawer) as MainDrawerFragment
-        _FragmentDrawer.init(R.id.fragDrawer, drawer, toolbar)
-        _FragmentDrawer.setDrawerEventListener(mDrawerEventListener)
+        val _fragmentDrawer: MainDrawerFragment = supportFragmentManager.findFragmentById(R.id.fragDrawer) as MainDrawerFragment
+        _fragmentDrawer.init(R.id.fragDrawer, drawer, toolbar)
+        _fragmentDrawer.setDrawerEventListener(mDrawerEventListener)
 
 
         var adRequest: AdRequest = AdRequest.Builder().build()
