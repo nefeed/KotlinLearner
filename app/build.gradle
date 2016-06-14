@@ -1,13 +1,13 @@
 buildscript {
     ext.kotlin_version = '1.0.2'
-    ext.anko_version = '0.8.2'
+    ext.anko_version = '0.8.3'
 
     repositories {
         jcenter()
     }
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.2"
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:1.0.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
     }
 }
 
@@ -55,14 +55,12 @@ dependencies {
     compile project(':lib_swipeback')
     compile project(':lib_showcaseview')
     testCompile 'junit:junit:4.12'
-//    compile 'org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version'
-    compile 'org.jetbrains.kotlin:kotlin-stdlib:1.0.2'
-//    compile "org.jetbrains.anko:anko-sdk21:$anko_version"
-    compile 'org.jetbrains.anko:anko-sdk21:0.8.2'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.jetbrains.anko:anko-sdk19:$anko_version"
     // sdk15, sdk19, sdk21, sdk23 are also available
-    compile 'org.jetbrains.anko:anko-support-v4:0.8.2'
+    compile "org.jetbrains.anko:anko-support-v4:$anko_version"
     // In case you need support-v4 bindings
-    compile 'org.jetbrains.anko:anko-appcompat-v7:0.8.2' // For appcompat-v7 bindings
+    compile "org.jetbrains.anko:anko-appcompat-v7:$anko_version" // For appcompat-v7 bindings
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:design:23.4.0'
     // Material Design EditText
@@ -71,6 +69,6 @@ dependencies {
     compile 'com.jakewharton.timber:timber:4.1.2'
     compile 'com.alibaba:fastjson:1.2.8'
     compile 'com.facebook.fresco:fresco:0.9.0'
-    compile 'com.google.android.gms:play-services-ads:9.0.0'
+    compile 'com.google.android.gms:play-services-ads:9.0.2'
 }
 

@@ -18,6 +18,9 @@ class HelloWorld {
 
         @JvmStatic fun main(args: Array<String>) {
             println("输出测试文本：" + HELLO_WORLD)
+            var _test = StudentTest("Gavin", 1, 1)
+            _test.name
+            _test.name = "test"
         }
     }
 }

@@ -1,5 +1,7 @@
 package com.gavin.kotlinlearner.util;
 
+import com.gavin.kotlinlearner.StudentTest;
+
 /**
  * User: Gavin
  * E-mail: GavinChangCN@163.com
@@ -16,6 +18,9 @@ public class HelloWorld {
 
     public static void main(String[] args) {
         System.out.println("输出测试文本：" + HELLO_WORLD);
+        StudentTest _test = new StudentTest("Gavin", 1, 1);
+        _test.getName();
+        _test.setName("test");
     }
 
     public void setIsFirstCreated(boolean check) {
