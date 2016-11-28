@@ -1,5 +1,5 @@
 buildscript {
-    ext.kotlin_version = '1.0.2'
+    ext.kotlin_version = '1.0.5-2'
     ext.anko_version = '0.8.3'
 
     repositories {
@@ -16,8 +16,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
 
 
     signingConfigs {
@@ -31,7 +31,7 @@ android {
     defaultConfig {
         applicationId "com.gavin.kotlinlearner"
         minSdkVersion 19
-        targetSdkVersion 23
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
     }
@@ -61,14 +61,14 @@ dependencies {
     compile "org.jetbrains.anko:anko-support-v4:$anko_version"
     // In case you need support-v4 bindings
     compile "org.jetbrains.anko:anko-appcompat-v7:$anko_version" // For appcompat-v7 bindings
-    compile 'com.android.support:appcompat-v7:23.4.0'
-    compile 'com.android.support:design:23.4.0'
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile 'com.android.support:design:25.0.1'
     // Material Design EditText
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
     // 代替Log的调试工具
     compile 'com.jakewharton.timber:timber:4.1.2'
     compile 'com.alibaba:fastjson:1.2.8'
     compile 'com.facebook.fresco:fresco:0.9.0'
-    compile 'com.google.android.gms:play-services-ads:9.0.2'
+    compile 'com.google.android.gms:play-services-ads:10.0.0'
 }
 
